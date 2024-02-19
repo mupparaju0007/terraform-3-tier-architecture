@@ -377,7 +377,7 @@ name = each.value
 variable "iam_users" {
 description = ""
 type = set(string)
-default = ["user1", "user2", "user3", "user4"]
+default = ["user1", "user8", "user7", "user6"]
 }
 
 resource "aws_iam_group" "two" {

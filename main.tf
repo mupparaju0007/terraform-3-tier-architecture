@@ -361,7 +361,7 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "batch4pmdevopswithaws202454"  
+  bucket = "batch4pmdevopsaws202454"  
 
   acl    = "private"  
   versioning {
@@ -381,5 +381,5 @@ default = ["user1", "user2", "user3", "user4"]
 }
 
 resource "aws_iam_group" "two" {
-name = "devopswithawsbyvinay"
+name = "devopswithawsbyvicky22"
 }

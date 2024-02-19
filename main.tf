@@ -203,7 +203,7 @@ resource "aws_db_instance" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
-  name       = "main"
+  name       = "main1"
   subnet_ids = [aws_subnet.database-subnet-1.id, aws_subnet.database-subnet-2.id]
 
   tags = {
@@ -214,7 +214,7 @@ resource "aws_db_subnet_group" "default" {
 
 # Create Web Security Group
 resource "aws_security_group" "webserver-sg" {
-  name        = "webserver-sg"
+  name        = "webserver1-sg"
   description = "Allow HTTP inbound traffic"
   vpc_id      = aws_vpc.my-vpc.id
 
@@ -247,7 +247,7 @@ resource "aws_security_group" "webserver-sg" {
 
 # Create Application Security Group
 resource "aws_security_group" "appserver-sg" {
-  name        = "appserver-SG"
+  name        = "appserver1-SG"
   description = "Allow inbound traffic from ALB"
   vpc_id      = aws_vpc.my-vpc.id
 
@@ -281,7 +281,7 @@ resource "aws_security_group" "appserver-sg" {
 
 # Create Database Security Group
 resource "aws_security_group" "database-sg" {
-  name        = "Database-SG"
+  name        = "Database1-SG"
   description = "Allow inbound traffic from application layer"
   vpc_id      = aws_vpc.my-vpc.id
 
@@ -306,7 +306,7 @@ resource "aws_security_group" "database-sg" {
 }
 
 resource "aws_lb" "external-elb" {
-  name               = "External-LaB"
+  name               = "External-LaB1"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.webserver-sg.id]
@@ -314,7 +314,7 @@ resource "aws_lb" "external-elb" {
 }
 
 resource "aws_lb_target_group" "external-elb" {
-  name     = "ALBA-TG"
+  name     = "ALBA-TG1"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.my-vpc.id
@@ -361,7 +361,7 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "batch4pmdevopsaws202458"  
+  bucket = "batch1030devopsby202450"  
 
   acl    = "private"  
   versioning {
@@ -377,9 +377,9 @@ name = each.value
 variable "iam_users" {
 description = ""
 type = set(string)
-default = ["user10", "user80", "user70", "user60"]
+default = ["user11", "user81", "user71", "user61"]
 }
 
 resource "aws_iam_group" "two" {
-name = "devopswithawsvicky448"
+name = "devopswithawsvicky488"
 }
